@@ -12,7 +12,7 @@ jobs:
 
       - name: Load & cache dependencies
         id: cache-deps
-        uses: ./.github/workflows/actions/cached-deps
+        uses: ./.github/actions/cached-deps
         with:
           caching: false
       - name: output info
@@ -79,3 +79,9 @@ jobs:
         run: ls
       - name: Deploy site
         run: echo "Deploying..."
+  
+  information:
+    runs-on: ubuntu-latest
+    steps:
+      - name: run custom action
+        uses: ./.github/actions/deploy-s3-js
